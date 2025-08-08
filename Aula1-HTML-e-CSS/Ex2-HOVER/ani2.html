@@ -29,12 +29,19 @@ A transição para o estado original ao tirar o mouse deve ser suave.
     *{margin: 0; padding: 0}
     .engloba{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;}
     .caixa {transition: 1s; width: 50px; height: 50px; background: #ddd;}
-    .caixa:hover{transform: scale(5)}
+    .caixa:hover{animation: Roda5 4s linear forwards , Pulso .2s linear infinite;}
 
+    @keyframes Roda5 {
+        from {transform: rotate(0);}
+        to {transform: rotate(1800deg);}
+    }
+    @keyframes Pulso {
+        from {transform: scale(1);}
+        to {transform: scale(1.2);}
+    }
+    
     .btn{background: #ddd; color: black; padding: 20px 30px; position: fixed; bottom: 0; right: 0;}
     .btn.ant{left: 0;right: auto;}
-
-
 
 </style>
 </head>
