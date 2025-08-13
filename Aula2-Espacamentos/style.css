@@ -1,0 +1,4 @@
+.alinha {display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: center; width: 800px; margin: 0 auto; background: #ddd;}
+.linha {display: flex; justify-content: space-around; width: 100%;}
+.quadradao {width: 60px; height: 60px; background: #2576c2; display: flex;}
+.quadrado {width: 20px; height: 20px; background: #f0db63; display: flex;}
