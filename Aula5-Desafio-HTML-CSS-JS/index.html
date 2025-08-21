@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="all">
+        <div class="alinhatodo">
+            <div class="top">
+                <h1 class="title">✔ TO DO LIST</h1>
+                <input type="text" id="newtodo"> <button id="button">Add</button>
+            </div>
+            <div class="center">
+                <div class="afazer">
+                    <h3>A Fazer</h3>
+                    <div id="afazer">0</div>
+                </div>
+                <div class="feitos">
+                    <h3>Feitos</h3>
+                    <div id="feitos">0</div>
+                </div>
+            </div>
+            <div class="bottom" id="list-todo">
+                
+            </div>
+        </div>
+    </div>
+    <div class="align-msg">
+        <div class="error msg" id="error" style="opacity: 0;">Error: </div>
+        <div class="ok msg" id="ok" style="opacity: 0;">Ok! Sua tarefa foi adicionada!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
