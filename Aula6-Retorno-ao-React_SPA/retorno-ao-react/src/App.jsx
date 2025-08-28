@@ -7,6 +7,7 @@ import { Fanonima } from './components/fanonima'
 import { Ffuncao } from './components/ffuncao'
 import { Fflecha } from './components/fflecha'
 import { Quadrado } from './components/quadrado'
+import { QuadradoAzul } from './components/quadradoazul'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
       <Quadrado  cor="red" />
       <Quadrado  cor="green" />
       <Quadrado  cor="blue" />
+      <QuadradoAzul />
     </>
   )
 }
