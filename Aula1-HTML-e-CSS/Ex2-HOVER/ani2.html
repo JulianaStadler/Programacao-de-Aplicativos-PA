@@ -28,17 +28,31 @@ A transição para o estado original ao tirar o mouse deve ser suave.
 <style>
     *{margin: 0; padding: 0}
     .engloba{width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;}
-    .caixa {transition: 1s; width: 50px; height: 50px; background: #ddd;}
-    .caixa:hover{animation: Roda5 4s linear forwards , Pulso .2s linear infinite;}
+    .caixa {transition: all 2s ease; width: 200px; height: 200px;}
+    .caixa:hover{animation: Pulso 2.5s linear 10 alternate forwards}
+    .caixa div {transition: all 2s ease; width: 100%; height: 100%; border-top: 2px solid green; border-bottom: 2px solid brown; background: url("https://www.pikpng.com/pngl/b/526-5263431_sneezing-cat-meme-tumblr-respuestas-de-memes-gatos.png") no-repeat center / contain, #ddd;}
+    .caixa:hover div {animation: Roda 5s linear 5 forwards, BackgroundColor 5s linear 5 forwards;}
 
-    @keyframes Roda5 {
-        from {transform: rotate(0);}
-        to {transform: rotate(1800deg);}
+    @keyframes Roda {
+        0%   {transform: rotate(0);}
+        100% {transform: rotate(360deg);}
     }
     @keyframes Pulso {
-        from {transform: scale(1);}
-        to {transform: scale(1.2);}
+        0%   {transform: scale(1);}
+        100% {transform: scale(2);}
     }
+    @keyframes BackgroundColor {
+        0%    {background-color: #7c0404;}
+        12.5% {background-color: #7c4804;}
+        25%   {background-color: #7a7c04;}
+        37.5% {background-color: #307c04;}
+        50%   {background-color: #047c62;}
+        62.5% {background-color: #04207c;}
+        75%   {background-color: #56047c;}
+        87.5% {background-color: #7c0442;}
+        100%  {background-color: #7c0404;}
+    }
+
     
     .btn{background: #ddd; color: black; padding: 20px 30px; position: fixed; bottom: 0; right: 0;}
     .btn.ant{left: 0;right: auto;}
@@ -47,7 +61,7 @@ A transição para o estado original ao tirar o mouse deve ser suave.
 </head>
 <body>
     <div class="engloba">
-        <div class="caixa"></div>
+        <div class="caixa"><div></div></div>
     </div>
     <a class="btn ant" href="index.html">Anterior</a>
     <a class="btn prox">Proximo</a>
