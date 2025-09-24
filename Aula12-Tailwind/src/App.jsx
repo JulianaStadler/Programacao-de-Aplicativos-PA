@@ -10,31 +10,48 @@ function App() {
           </div>
         </div>
         <div className='min-w-screen min-h-1/2 flex justify-center items-center flex-col gap-4'>
-          <div className='border-2 min-w-2/3 flex gap-2.5 justify-between'>
-            <div className='w-16 h-16 bg-blue-400  flex justify-between items-center flex-wrap flex-col'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
-              <div className='w-5 h-5 bg-orange-400 '></div>
+          <div className='w-3/4 flex justify-center items-center flex-col gap-4 border-2'>
+            <div className='w-full flex gap-2.5 justify-between'>
+              <div className='w-18 h-18 bg-blue-400  flex justify-between items-center flex-wrap flex-col'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400  flex justify-center items-center'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400  flex justify-end items-end relative'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+                <div className='w-5 h-5 bg-orange-400  absolute top-0 left-0'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400  flex justify-center items-end'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
             </div>
-            <div className='w-16 h-16 bg-blue-400  flex justify-center items-center'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
+            <div className='w-full flex gap-2.5 justify-between'>
+              <div className='w-18 h-18 bg-blue-400  flex justify-between items-center flex-wrap flex-col'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400  flex justify-center items-center relative'>
+                <div className='w-5 h-5 bg-orange-400 absolute top-0'></div>
+                <div className='w-5 h-5 bg-orange-400 absolute bottom-0'></div>
+                <div className='w-5 h-5 bg-orange-400 absolute left-0'></div>
+                <div className='w-5 h-5 bg-orange-400 absolute right-0'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400 flex justify-center'>
+                <div className='w-5 h-5 bg-orange-400 mt-1'></div>
+              </div>
             </div>
-            <div className='w-16 h-16 bg-blue-400  flex justify-end items-end relative'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
-              <div className='w-5 h-5 bg-orange-400  absolute top-0 left-0'></div>
-            </div>
-            <div className='w-16 h-16 bg-blue-400  flex justify-center items-end'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
-            </div>
-          </div>
-          <div className='border-2 min-w-2/3 flex gap-2.5 justify-between'>
-            <div className='w-16 h-16 bg-blue-400  flex justify-between items-center flex-wrap flex-col'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
-            </div>
-            <div className='w-16 h-16 bg-blue-400  flex justify-center items-center'>
-              <div className='w-5 h-5 bg-orange-400 '></div>
-            </div>
-            <div className='w-16 h-16 bg-blue-400 flex justify-center'>
-              <div className='w-5 h-5 bg-orange-400 mt-1'></div>
+            <div className='w-full flex gap-2.5 justify-between'>
+              <div className='w-18 h-18 bg-blue-400  flex justify-end relative'>
+                <div className='w-5 h-5 bg-orange-400 absolute left-0 bottom-0'></div>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400  flex justify-center items-center'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
+              <div className='w-18 h-18 bg-blue-400 flex justify-end'>
+                <div className='w-5 h-5 bg-orange-400'></div>
+              </div>
             </div>
           </div>
         </div>
