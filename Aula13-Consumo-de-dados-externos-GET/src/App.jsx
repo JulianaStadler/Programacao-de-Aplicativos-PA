@@ -1,28 +1,28 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState } from 'react'
+
+import Home from "./pages/home";
+import Cat from "./pages/cat";
+import Pokemon from "./pages/pokemon";
 
 function App() {
-  const [cat, setCat] = useState({});
-
-  useEffect(() => {
-    getCat();
-  }, []);
-
-  const getCat = async () => {
-    const response = await axios.get('https://cataas.com/cat/gif');
-    console.log(response.data)
-    setCat(response.data)
-  }
-
-
-
   return (
-    <>
-      <button type="button" onClick={() => {getCat(); alert("changing cat, await")}} style={{position: 'absolute', top: "10px", transform: "translate(-50%, 0)", background: "green"}}>New Cat</button> <br /> <br />
-      <img src={cat.url} alt="opa" srcset="" style={{maxWidth: "100%"}} />
-    </>
-  )
+    <Router>
+      <nav style={{background: "#b7b7b7",position: "absolute",color: "#000",top: "0px",left: "0px",width: "calc(100% - 20px)",fontSize: "20px",display: "flex",justifyContent: 'center',gap: "10px",padding: "10px",flexWrap: "wrap"
+      }}>
+        <Link style={{color: "black", border: "1px solid black", padding: "5px 10px", boxSizing: "border-box", display: "block"}} to="/">Home</Link>
+        <Link style={{color: "black", border: "1px solid black", padding: "5px 10px", boxSizing: "border-box", display: "block"}} to="/cat">Cat</Link>
+        <Link style={{color: "black", border: "1px solid black", padding: "5px 10px", boxSizing: "border-box", display: "block"}} to="/pokemon">Pokemon</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cat" element={<Cat />} />
+        <Route path="/pokemon" element={<Pokemon />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
