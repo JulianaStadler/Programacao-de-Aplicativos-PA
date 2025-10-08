@@ -6,6 +6,8 @@ import Home from "./pages/home";
 import Pokemon from "./pages/pokemon";
 import Pokedex from "./pages/pokedex";
 import PokedexAll from "./pages/pokedexall";
+import PokedexType from "./pages/pokedextype";
+import PokedexPokemon from "./pages/pokedexpokemon";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/pokemon" element={<Pokemon />} />
         <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/pokedex/all" element={<PokedexAll />} />
+        <Route path="/pokedex/type/:type" element={<PokedexType />} />
+        <Route path="/pokedex/pokemon/:id" element={<PokedexPokemon />} />
       </Routes>
     </Router>
   );

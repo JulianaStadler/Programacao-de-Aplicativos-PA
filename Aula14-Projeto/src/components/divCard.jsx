@@ -2,7 +2,7 @@ import DivType from "./divType";
 
 export default function DivCard({ poke }) {
     return (
-        <div
+        <a href={"/pokedex/pokemon/" + poke.id}
             style={{
                 width: "180px",
 
@@ -32,6 +32,6 @@ export default function DivCard({ poke }) {
                     <DivType key={t.type.name} type={t.type.name} />
                 ))}
             </div>
-        </div>
+        </a>
     );
 }

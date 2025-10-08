@@ -3,6 +3,7 @@ import axios from "axios";
 import DivType from "../components/divType";
 
 export default function Pokedex() {
+    const { type } = useParams();
     const [allTypes, setAllTypes] = useState([]);
 
     useEffect(() => {
