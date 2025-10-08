@@ -6,7 +6,7 @@ export default function Pokedex() {
     const [pokemons, setPokemons] = useState([]);
     const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(false);
-    const limit = 5;
+    const limit = 15;
 
     const loader = useRef(null); // var que observa se chegou ao fim, fica de cuido
 
@@ -68,12 +68,14 @@ export default function Pokedex() {
 
     return (
         <div style={{ textAlign: "center", padding: "20px" }}>
-            <h1>Pokédex</h1>
+            <h1>Pokédex All</h1>
 
             <div
                 style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+                    display: "flex",
+                    justifyItems: "center",
+                    flexWrap: "wrap",
+                    justifyContent: "space-around",
                     gap: "15px",
                     marginTop: "20px",
                 }}
