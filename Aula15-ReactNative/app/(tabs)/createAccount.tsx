@@ -1,8 +1,27 @@
 import { Button } from '@react-navigation/elements';
-import { View, Text, StyleSheet, TextInput, Dimensions, Image, Pressable, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Dimensions, Image, Pressable, TouchableOpacity, Alert } from 'react-native';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { app } from '../../firebaseConfig';
+import { useState } from 'react';
+
 const { width, height } = Dimensions.get('window');
 
 export default function NewPage() {
+    const auth = getAuth(app);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const singUp = () => {
+        if(password === confirmPassword){
+            return createUserWithEmailAndPassword(auth, email, password)
+        }
+        else {
+            return alert("Erro!")
+        }
+    }
+
     return (
         <View style={styles.all}>
             <View style={[styles.all, styles.animatedimages]}>
@@ -15,10 +34,12 @@ export default function NewPage() {
                     resizeMode="contain"
                 ></Image>
                 <View style={styles.infos}>
-                    <TextInput style={styles.input} placeholder='Login'></TextInput>
-                    <TextInput style={styles.input} placeholder='Senha'></TextInput>
-                    <TouchableOpacity style={styles.bntlogin}>ENTRAR</TouchableOpacity>
-                    <Pressable style={styles.esqueci}>Esqueci a Senha</Pressable>
+                    <Text style={styles.title}>Criar Conta</Text>
+                    <TextInput style={styles.input} placeholder='Email' onChangeText={(value) => setEmail(value)}></TextInput>
+                    <TextInput style={styles.input} placeholder='Senha' onChangeText={(value) => setPassword(value)}></TextInput>
+                    <TextInput style={styles.input} placeholder='Confirme a senha' onChangeText={(value) => setConfirmPassword(value)}></TextInput>
+                    <TouchableOpacity style={styles.bntlogin}>Registrar</TouchableOpacity>
+                    <Pressable style={styles.esquecimaior}>Fazer Login</Pressable>
                 </View>
             </View>
         </View>
@@ -68,10 +89,21 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginTop: 5
     },
-    esqueci: {
+    esquecimaior: {
         textAlign: 'center',
         margin: 20,
-        fontSize: 12
+        fontSize: 12,
+        fontWeight: 900,
+        textTransform: 'uppercase',
+        color: 'black'
+    },
+    title: {
+        textAlign: 'center',
+        marginBottom: 20,
+        fontSize: 18,
+        fontWeight: 900,
+        textTransform: 'uppercase',
+        color: 'black'
     },
     infos: {
         width: '80%',

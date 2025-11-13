@@ -1,13 +1,19 @@
 import { Button } from '@react-navigation/elements';
 import { View, Text, StyleSheet, TextInput, Dimensions, Image, Pressable, TouchableOpacity } from 'react-native';
+const { width, height } = Dimensions.get('window');
 import { getAuth } from 'firebase/auth';
 import { app } from '../../firebaseConfig';
+import { useState } from 'react';
 
-const { width, height } = Dimensions.get('window');
 
 export default function NewPage() {
+    const auth = getAuth(app);
 
-  const auth = getAuth(app);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    
 
     return (
         <View style={styles.all}>
@@ -21,7 +27,10 @@ export default function NewPage() {
                     resizeMode="contain"
                 ></Image>
                 <View style={styles.infos}>
+                    <TextInput style={styles.input} placeholder='Login'></TextInput>
+                    <TextInput style={styles.input} placeholder='Senha'></TextInput>
                     <TouchableOpacity style={styles.bntlogin}>ENTRAR</TouchableOpacity>
+                    <Pressable style={styles.esqueci}>Esqueci a Senha</Pressable>
                     <Pressable style={styles.esquecimaior}>Criar Conta</Pressable>
                 </View>
             </View>
