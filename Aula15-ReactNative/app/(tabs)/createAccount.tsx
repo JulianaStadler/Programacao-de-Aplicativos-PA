@@ -38,8 +38,8 @@ export default function NewPage() {
                     <TextInput style={styles.input} placeholder='Email' onChangeText={(value) => setEmail(value)}></TextInput>
                     <TextInput style={styles.input} placeholder='Senha' onChangeText={(value) => setPassword(value)}></TextInput>
                     <TextInput style={styles.input} placeholder='Confirme a senha' onChangeText={(value) => setConfirmPassword(value)}></TextInput>
-                    <TouchableOpacity style={styles.bntlogin}>Registrar</TouchableOpacity>
-                    <Pressable style={styles.esquecimaior}>Fazer Login</Pressable>
+                    <TouchableOpacity onPress={() => singUp()}><Text style={styles.bntlogin}>Registrar</Text></TouchableOpacity>
+                    <Pressable><Text style={styles.esquecimaior}>Fazer Login</Text></Pressable>
                 </View>
             </View>
         </View>
