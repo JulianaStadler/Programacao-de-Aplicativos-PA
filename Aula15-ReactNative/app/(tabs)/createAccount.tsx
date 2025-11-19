@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, TextInput, Dimensions, Image, Pressable, Toucha
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../../firebaseConfig';
 import { useState } from 'react';
+import { router } from 'expo-router';
+import Swal from 'sweetalert2';
 
 const { width, height } = Dimensions.get('window');
 
@@ -12,14 +14,46 @@ export default function NewPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const minPassword = 6;
+    
+    
+    const singUp = async () => {
+        //nao pode ter menos de 6 caracteres na senha
+        if(password.length < minPassword)
+            return Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "A senha deve conter ao menos 6 caracteres."
+            });
+        
+        //confimar a senha
+        if(!(password === confirmPassword))
+            return Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "As senhas precisam ser identicas."
+            });
+        
+        //nao pode cadastrar o mesmo email
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            Swal.fire({
+                icon: "success",
+                title: "sucesso",
+                text: "Cadastrado com sucesso!"
+            });
+            return router.navigate('/login')
+        }
+        catch(e) {
+            return Swal.fire({
+                icon: "error",
+                title: "sucesso",
+                text: "Email já existe!" + e
+            });
+        }
 
-    const singUp = () => {
-        if(password === confirmPassword){
-            return createUserWithEmailAndPassword(auth, email, password)
-        }
-        else {
-            return alert("Erro!")
-        }
+        return;
+        
     }
 
     return (
@@ -38,7 +72,7 @@ export default function NewPage() {
                     <TextInput style={styles.input} placeholder='Email' onChangeText={(value) => setEmail(value)}></TextInput>
                     <TextInput style={styles.input} placeholder='Senha' onChangeText={(value) => setPassword(value)}></TextInput>
                     <TextInput style={styles.input} placeholder='Confirme a senha' onChangeText={(value) => setConfirmPassword(value)}></TextInput>
-                    <TouchableOpacity onPress={() => singUp()}><Text style={styles.bntlogin}>Registrar</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => singUp()}><View><Text style={styles.bntlogin}>Registrar</Text></View></TouchableOpacity>
                     <Pressable><Text style={styles.esquecimaior}>Fazer Login</Text></Pressable>
                 </View>
             </View>
